@@ -7,14 +7,14 @@ This is a challenge for learning Rubocop and how to do things the 'ruby' way.
 You will also learn about refactoring and why it's important.
 
 ## Instructions
-You have been tasked to clean up Gem City. Luckily your boss has paired you up with the newest advancement in code enforcement, Rubocop.  
-1. Install the required gems
-```gem install bundler
-bundle install```
-2. Run rspec with ```rspec gem_city_spec.rb``` and then get a feel for the code that's passing.
-3. Run rubocop with ```rubocop``` or ```rubocop <filename>``` and see what's failing.
-4. Correct all rubocop errors.
-5. Rerun the tests and rubocop. If there are no complaints, congratulations you've cleaned up the streets of Gem City. There are 3 lines in the rspec file that you can change, leave the rest.
+You have been tasked to clean up Gem City. Luckily, your boss has paired you up with the newest advancement in code enforcement technology, Rubocop.  
+  1. Install the required gems
+  ```gem install bundler
+  bundle install```
+  2. Run rspec with ```rspec gem_city_spec.rb``` and then get a feel for the code that's passing.
+  3. Run rubocop with ```rubocop``` or ```rubocop <filename>``` and see what's failing.
+  4. Correct all rubocop errors.
+  5. Rerun the tests and rubocop. If there are no complaints, congratulations you've successfully cleaned up the streets of Gem City. There are 3 lines in the rspec file that you can change, leave the rest.
 
 Bonus: Write the city demographics feature
 - Uncomment the block of code at the end of the spec file
