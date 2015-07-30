@@ -1,6 +1,7 @@
 # Rubocop: The Future of Standards Enforcement
 
 __Skill Level:__ Beginner - Intermediate
+
 __Time Limit:__ 45 minutes 
 
 This is a challenge for learning Rubocop and how to do things the 'ruby' way.
@@ -9,8 +10,10 @@ You will also learn about refactoring and why it's important.
 ## Instructions
 You have been tasked to clean up Gem City. Luckily, your boss has paired you up with the newest advancement in code enforcement technology, Rubocop.  
   1. Install the required gems
-  ```gem install bundler
-  bundle install```
+  ```
+  gem install bundler
+  bundle install
+  ```
   2. Run rspec with ```rspec gem_city_spec.rb``` and then get a feel for the code that's passing.
   3. Run rubocop with ```rubocop``` or ```rubocop <filename>``` and see what's failing.
   4. Correct all rubocop errors.
@@ -22,7 +25,7 @@ Bonus: Write the city demographics feature
 - Run rubocop and then make the corrections.
 - Rerun your test. If it passes, you've successfully refactored your function.
 
-Challenge: See how short you can make the GemCity class while still passing Rubocop and rspec tests
+Advanced Challenge: See how short you can make the GemCity class while still passing Rubocop and rspec tests
 
 __NOTE:__ Important steps or reminders should be noticeable.  
 
@@ -30,7 +33,7 @@ __NOTE:__ Important steps or reminders should be noticeable.
 - Why would you want to follow standards?
 - What is the purpose of refactoring, if it works, why refactor?
 - How can refactoring help us expand our code?
-- The bonus follows a process called Red, Green, Refactor.
+- The bonus challenge follows a process called Red, Green, Refactor.
 
 ## Resources
 - [Rubocop](https://github.com/bbatsov/rubocop)
