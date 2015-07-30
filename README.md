@@ -8,11 +8,11 @@ You will also learn about refactoring and why it's important.
 
 ## Instructions
 You have been tasked to clean up the Gem City. Luckily your boss has paired you up with the newest advancement in code enforcement, Rubocop.  
-1. Look around the Repository and get a feel for what's going on.
-2. Run rspec and get a feel for the code that's passing, and what's failing.
-3. Run rubocop and see what's failing. 
-4. Correct all rubocop errors.
-5. Rerun the tests and rubocop. If there are no complaints, congratulations you've cleaned up the streets of Gem City
+  1. Look around the Repository and get a feel for what's going on.
+  2. Run rspec and see the code that's passing, and what's failing.
+  3. Run rubocop and see what's failing. 
+  4. Correct all rubocop errors.
+  5. Rerun the tests and rubocop. If there are no complaints, congratulations you've cleaned up the streets of Gem City
 
 Bonus: Write a test for ... 
 Write the code to make the test pass.
