@@ -10,10 +10,12 @@ You will also learn about refactoring and why it's important.
 ## Instructions
 You have been tasked to clean up Gem City. Luckily, your boss has paired you up with the newest advancement in code enforcement technology, Rubocop.  
   1. Install the required gems
+
   ```
   gem install bundler
   bundle install
   ```
+
   2. Run rspec with ```rspec gem_city_spec.rb``` and then get a feel for the code that's passing.
   3. Run rubocop with ```rubocop``` or ```rubocop <filename>``` and see what's failing.
   4. Correct all rubocop errors.
@@ -26,8 +28,6 @@ Bonus: Write the city demographics feature
 - Rerun your test. If it passes, you've successfully refactored your function.
 
 Advanced Challenge: See how short you can make the GemCity class while still passing Rubocop and rspec tests
-
-__NOTE:__ Important steps or reminders should be noticeable.  
 
 ## Things to think about
 - Why would you want to follow standards?
