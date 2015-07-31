@@ -36,7 +36,7 @@ This is a town riddled with crime but we can find out how happy the town is
     happinessVals.each do |value|
       happiness += value
     end
-    return happiness / 100
+    return happiness / 100 
   end
 
   def successful_crime_rate
