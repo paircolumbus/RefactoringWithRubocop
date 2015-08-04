@@ -43,7 +43,7 @@ describe 'Gem City' do
     end
   end
 
-  # contex 'city_demographics' do
+  # context 'city_demographics' do
   #   it 'initialize' do
   #     demographics = city.city_demographics
   #     expect(demographics[:thieves]).to eq('10%')
