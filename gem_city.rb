@@ -10,7 +10,11 @@ class GemCity
     @population = 50
   end
 
-  def thieves(thieves_number = @people[:thieves])
+  def thieves
+    @people[:thieves]
+  end
+
+  def thieves=(thieves_number)
     @people[:thieves] = thieves_number
   end
 
@@ -40,5 +44,19 @@ class GemCity
       odds_percent = odds * 100
     end
     odds_percent
+  end
+
+  def city_demographics
+    civilians = population - (thieves + officers)
+    { thieves:   "#{population_percentage thieves}%",
+      officers:  "#{population_percentage officers}%",
+      civilians: "#{population_percentage civilians}%"
+    }
+  end
+
+  private
+
+  def population_percentage(number)
+    ((number.to_f / population.to_f) * 100).to_i
   end
 end
