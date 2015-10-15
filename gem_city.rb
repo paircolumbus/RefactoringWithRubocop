@@ -10,29 +10,34 @@ class GemCity
     @population = 50
   end
 
-  def thieves(thieves_number = @thieves)
-    @thieves = thieves_number
-  end
-
   def happiness_of_town
     # happiness is random... people don't know what they want!
-    happiness_vals = []
     happiness = 0
-    (1..@population).each do
-      happiness_vals.push(rand((100 - successful_crime_rate)..100))
-    end
-    happiness_vals.each do |value|
-      happiness += value
+    (1..population).each do
+      happiness += rand((100 - successful_crime_rate)..100)
     end
     happiness / 100
   end
 
   def successful_crime_rate
     odds_percent = 0
-    if @thieves > 0 && @officers <= @thieves
-      odds = 1 - @officers.to_f / @thieves.to_f
+    if thieves > 0 && officers <= thieves
+      odds = 1 - officers.to_f / thieves.to_f
       odds_percent = odds * 100
     end
     odds_percent
+  end
+
+  def city_demographics
+    thieves_percent = population_percentage thieves
+    officers_percent = population_percentage officers
+    civilians_percent = 100 - officers_percent - thieves_percent
+    { thieves: "#{thieves_percent}%",
+      officers: "#{officers_percent}%",
+      civilians: "#{civilians_percent}%" }
+  end
+
+  def population_percentage(population_group)
+    population_group * 100 / population
   end
 end
