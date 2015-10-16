@@ -46,4 +46,21 @@ class GemCity
     end
     odds_percent
   end
+
+  def thief_demo
+    (@people[:thieves] / @population.to_f * 100).round.to_s << '%'
+  end
+
+  def officer_demo
+    (@people[:Officers] / @population.to_f * 100).round.to_s << '%'
+  end
+
+  def civilian_demo
+    civilians = @population - @people[:thieves] - @people[:Officers]
+    (civilians / @population.to_f * 100).round.to_s << '%'
+  end
+
+  def city_demographics
+    { thieves: thief_demo, officers: officer_demo, civilians: civilian_demo }
+  end
 end
