@@ -35,16 +35,11 @@ class GemCity
   end
 
   def successful_crime_rate
-    thieves = @people[:thieves]
-    officers = @people[:Officers]
-    if thieves <= 0
-      odds_percent = 0
-    elsif officers > thieves
-      odds_percent = 0
+    if @people[:thieves] <= 0 || @people[:Officers] > @people[:thieves]
+      0
     else
-      odds_percent = (1 - officers.to_f / thieves.to_f) * 100
+      (1 - @people[:Officers].to_f / @people[:thieves].to_f) * 100
     end
-    odds_percent
   end
 
   def thief_demo
