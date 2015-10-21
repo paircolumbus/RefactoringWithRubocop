@@ -1,23 +1,13 @@
 # This class represents the town of GemCity
 # This is a town riddled with crime but we can find out how happy the town is
 class GemCity
-  def initialize
-    @people = { thieves: 5, Officers: 1 }
-    @population = 50
-  end
-
-  def thieves(thieves_number = @people[:thieves])
-    @people[:thieves] = thieves_number
-  end
-
-  def officers
-    @people[:Officers]
-  end
-
+  attr_accessor :thieves, :officers
   attr_reader :population
 
-  def officers=(officers)
-    @people[:Officers] = officers
+  def initialize
+    @thieves = 5
+    @officers = 1
+    @population = 50
   end
 
   def happiness_of_town
@@ -30,10 +20,10 @@ class GemCity
   end
 
   def successful_crime_rate
-    if @people[:thieves] <= 0 || @people[:Officers] > @people[:thieves]
+    if @thieves <= 0 || @officers > @thieves
       0
     else
-      (1 - @people[:Officers].to_f / @people[:thieves].to_f) * 100
+      (1 - @officers.to_f / @thieves.to_f) * 100
     end
   end
 
@@ -42,9 +32,9 @@ class GemCity
   end
 
   def city_demographics
-    thieves = compute_demo(@people[:thieves])
-    officers = compute_demo(@people[:Officers])
-    civs = compute_demo(@population - @people[:thieves] - @people[:Officers])
+    thieves = compute_demo(@thieves)
+    officers = compute_demo(@officers)
+    civs = compute_demo(@population - @thieves - @officers)
     { thieves: thieves, officers: officers, civilians: civs }
   end
 end
