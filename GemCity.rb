@@ -18,7 +18,7 @@ class GemCity
   end
 
   def successful_crime_rate
-    thieves <= 0 || officers > @thieves ? 0 : 100 * (1 - officers / thieves.to_f)
+    thieves <= 0 || officers > thieves ? 0 : 100 * (1 - officers / thieves.to_f)
   end
 
   def city_demographics
