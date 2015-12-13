@@ -2,22 +2,12 @@ class GemCity
   # This class represents the town of GemCity
   # This is a town riddled with crime but we can find out how happy the town is
   attr_reader :population
+  attr_accessor :officers, :thieves
 
   def initialize
-    @people = { thieves: 5, officers: 1 }
+    @thieves = 5
+    @officers = 5
     @population = 50
-  end
-
-  def thieves(thieves_number = @people[:thieves])
-    @people[:thieves] = thieves_number
-  end
-
-  def officers
-    @people[:officers]
-  end
-
-  def officers=(officers)
-    @people[:officers] = officers
   end
 
   def happiness_of_town
@@ -29,21 +19,15 @@ class GemCity
       happiness_vals << rand((100 - successful_crime_rate)..100)
     end
 
-    happiness_vals.each do |value|
-      happiness += value
-    end
-
+    happiness_vals.each { |value| happiness += value }
     happiness / 100
   end
 
   def successful_crime_rate
-    thieves = @people[:thieves]
-    officers = @people[:officers]
-
-    if thieves <= 0 || officers > thieves
+    if @thieves <= 0 || @officers > @thieves
       0
     else
-      100 * (1 - officers.to_f / thieves.to_f)
+      100 * (1 - @officers.to_f / @thieves.to_f)
     end
   end
 end
