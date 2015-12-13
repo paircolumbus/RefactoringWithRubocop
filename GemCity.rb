@@ -20,4 +20,16 @@ class GemCity
   def successful_crime_rate
     @thieves <= 0 || @officers > @thieves ? 0 : 100 * (1 - @officers / @thieves.to_f)
   end
+
+  def city_demographics
+    {}.tap do |demo|
+      demo[:thieves] = demographics_format @thieves
+      demo[:officers] = demographics_format @officers
+      demo[:civilians] = demographics_format (@population - @thieves - @officers)
+    end
+  end
+
+  def demographics_format people
+    "#{100 * people / @population}%"
+  end
 end
