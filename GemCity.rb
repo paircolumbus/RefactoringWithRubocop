@@ -13,20 +13,18 @@ class GemCity
   def happiness_of_town
     # happiness is random... people don't know what they want!
     happiness = 0
-    @population.times { happiness += rand((100 - successful_crime_rate)..100) }
+    population.times { happiness += rand((100 - successful_crime_rate)..100) }
     happiness / 100
   end
 
   def successful_crime_rate
-    @thieves <= 0 || @officers > @thieves ? 0 : 100 * (1 - @officers / @thieves.to_f)
+    thieves <= 0 || officers > @thieves ? 0 : 100 * (1 - officers / thieves.to_f)
   end
 
   def city_demographics
-    {}.tap do |demo|
-      demo[:thieves] = demographics_format @thieves
-      demo[:officers] = demographics_format @officers
-      demo[:civilians] = demographics_format (@population - @thieves - @officers)
-    end
+    { thieves: demographics_format(thieves),
+      officers: demographics_format(officers),
+      civilians: demographics_format(population - thieves - officers) }
   end
 
   def demographics_format(people)
