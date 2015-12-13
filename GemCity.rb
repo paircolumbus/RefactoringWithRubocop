@@ -13,7 +13,7 @@ class GemCity
   def happiness_of_town
     # happiness is random... people don't know what they want!
     happiness = 0
-    @population.times { happiness += rand((100 - successful_crime_rate)..100)}
+    @population.times { happiness += rand((100 - successful_crime_rate)..100) }
     happiness / 100
   end
 
@@ -29,7 +29,7 @@ class GemCity
     end
   end
 
-  def demographics_format people
+  def demographics_format(people)
     "#{100 * people / @population}%"
   end
 end
