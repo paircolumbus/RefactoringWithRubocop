@@ -16,7 +16,7 @@ describe 'Gem City' do
 
     it 'officers = thieves' do
       city.thieves 1
-      city.setOfficers 1 # This line may need to be changed
+      city.officers = 1 # This line may need to be changed
       expect(city.successful_crime_rate).to eq(0)
     end
 
@@ -27,7 +27,7 @@ describe 'Gem City' do
 
     it 'officers > thieves' do
       city.thieves 1
-      city.setOfficers 2 # This line may need to be changed
+      city.officers = 2 # This line may need to be changed
       expect(city.successful_crime_rate).to eq(0)
     end
   end
