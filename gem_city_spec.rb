@@ -43,21 +43,21 @@ describe 'Gem City' do
     end
   end
 
-  # context 'city_demographics' do
-  #   it 'initialize' do
-  #     demographics = city.city_demographics
-  #     expect(demographics[:thieves]).to eq('10%')
-  #     expect(demographics[:officers]).to eq('2%')
-  #     expect(demographics[:civilians]).to eq('88%')
-  #   end
+  context 'city_demographics' do
+    it 'initialize' do
+      demographics = city.city_demographics
+      expect(demographics[:thieves]).to eq('10%')
+      expect(demographics[:officers]).to eq('2%')
+      expect(demographics[:civilians]).to eq('88%')
+    end
 
-  #   it 'thieves = 10, officers = 25' do
-  #     city.thieves = 10
-  #     city.officers = 25
-  #     demographics = city.city_demographics
-  #     expect(demographics[:thieves]).to eq('20%')
-  #     expect(demographics[:officers]).to eq('50%')
-  #     expect(demographics[:civilians]).to eq('30%')
-  #   end
-  # end
+    it 'thieves = 10, officers = 25' do
+      city.thieves = 10
+      city.officers = 25
+      demographics = city.city_demographics
+      expect(demographics[:thieves]).to eq('20%')
+      expect(demographics[:officers]).to eq('50%')
+      expect(demographics[:civilians]).to eq('30%')
+    end
+  end
 end
