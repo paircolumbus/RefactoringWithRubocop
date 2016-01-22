@@ -1,15 +1,24 @@
 # This class represents the town of GemCity
 # This is a town riddled with crime but we can find out how happy the town is
 class GemCity
-  attr_reader :population
+  attr_reader :population, :people, :demographics
+  attr_accessor :people
 
   def initialize
     @people = { thieves: 5,
-                officers: 1 }
+                officers: 1,
+                civilians: 44 }
     @population = 50
+    @demographics = {   thieves: '10%',
+                        officers: '2%',
+                        civilians: '88%' }
   end
 
-  def thieves(thieves_number = @people[:thieves])
+  def thieves
+    @people[:thieves]
+  end
+
+  def thieves=(thieves_number = @people[:thieves])
     @people[:thieves] = thieves_number
   end
 
@@ -17,7 +26,7 @@ class GemCity
     @people[:officers]
   end
 
-  def officers=(officers)
+  def officers=(officers = @people[:thieves])
     @people[:officers] = officers
   end
 
@@ -44,5 +53,21 @@ class GemCity
       odds_percent = odds * 100
     end
     odds_percent
+  end
+
+  def city_demographics
+    @demographics = {
+      thieves: demographic_calc(thieves),
+      officers: demographic_calc(officers),
+      civilians: demographic_calc(population - thieves - officers)
+    }
+  end
+
+  def demographic_calc(group)
+    percentify(((group.to_f / population.to_f) * 100).to_i)
+  end
+
+  def percentify(num)
+    num.to_s + '%'
   end
 end
