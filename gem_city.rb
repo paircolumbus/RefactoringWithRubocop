@@ -5,7 +5,7 @@ class GemCity
   def initialize
     @people = {
       thieves: 5,
-      Officers: 1 }
+      officers: 1 }
     @population = 50
   end
 
@@ -13,12 +13,8 @@ class GemCity
     @people[:thieves] = thieves_number
   end
 
-  def officers
-    @people[:Officers]
-  end
-
-  def officers!(officers)
-    @people[:Officers] = officers
+  def officers(officers_number = @people[:officers])
+    @people[:officers] = officers_number
   end
 
   def happiness_of_town
@@ -36,7 +32,7 @@ class GemCity
 
   def successful_crime_rate
     thieves = @people[:thieves]
-    officers = @people[:Officers]
+    officers = @people[:officers]
     if thieves <= 0 || officers > thieves
       odds_percent = 0
     else
@@ -44,5 +40,17 @@ class GemCity
       odds_percent = odds * 100
     end
     odds_percent
+  end
+
+  def percentage(numerator, denominator)
+    format('%.0f%', (numerator.to_f / denominator.to_f) * 100.0)
+  end
+
+  def city_demographics
+    civilians = @population - @people[:thieves] - @people[:officers]
+
+    { thieves: percentage(@people[:thieves], @population),
+      officers: percentage(@people[:officers], @population),
+      civilians: percentage(civilians, @population) }
   end
 end
