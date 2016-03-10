@@ -19,12 +19,16 @@ class GemCity
     happiness / 100
   end
 
+  def no_crimes_can_occur?
+    @thieves <= 0 || @officers > @thieves
+  end
+
+  def crime_probability
+    (1 - @officers.to_f / @thieves.to_f) * 100
+  end
+
   def successful_crime_rate
-    if @thieves <= 0 || @officers > thieves
-      0
-    else
-      (1 - @officers.to_f / @thieves.to_f) * 100
-    end
+    no_crimes_can_occur? ? 0 : crime_probability
   end
 
   def percentage_of_population(group)
