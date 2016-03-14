@@ -12,7 +12,7 @@ class GemCity
 
   def happiness_of_town
     # happiness is random... people don't know what they want!
-    happiness_vals = (1..@population).collect do
+    happiness_vals = (1..population).collect do
       rand((100 - successful_crime_rate)..100)
     end
     happiness = happiness_vals.reduce(0, :+)
@@ -20,11 +20,11 @@ class GemCity
   end
 
   def no_crimes_can_occur?
-    @thieves <= 0 || @officers > @thieves
+    thieves <= 0 || officers > thieves
   end
 
   def crime_probability
-    (1 - @officers.to_f / @thieves.to_f) * 100
+    (1 - officers.to_f / thieves.to_f) * 100
   end
 
   def successful_crime_rate
@@ -32,12 +32,12 @@ class GemCity
   end
 
   def percentage_of_population(group)
-    format('%.0f%', (group.to_f / @population.to_f) * 100.0)
+    format('%.0f%', (group.to_f / population.to_f) * 100.0)
   end
 
   def city_demographics
-    { thieves: percentage_of_population(@thieves),
-      officers: percentage_of_population(@officers),
-      civilians: percentage_of_population(@population - @thieves - @officers) }
+    { thieves: percentage_of_population(thieves),
+      officers: percentage_of_population(officers),
+      civilians: percentage_of_population(population - thieves - officers) }
   end
 end
