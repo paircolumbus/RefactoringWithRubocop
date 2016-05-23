@@ -24,9 +24,8 @@ class GemCity
     # happiness is random... people don't know what they want!
     happiness_vals = []
     happiness = 0
-    for index in (1..@population)
+    (1..@population).each do
       happiness_vals.push(rand((100 - successful_crime_rate)..100))
-      index += 1
     end
     happiness_vals.each do |value|
       happiness += value
@@ -37,14 +36,8 @@ class GemCity
   def successful_crime_rate
     thieves = @people[:thieves]
     officers = @people[:Officers]
-    if thieves <= 0
-      odds_percent = 0
-    elsif officers > thieves
-      odds_percent = 0
-    else
-      odds = 1 - officers.to_f / thieves.to_f
-      odds_percent = odds * 100
-    end
-    odds_percent
+    return 0 if thieves <= 0 || officers > thieves
+    odds = 1 - officers.to_f / thieves.to_f
+    odds * 100
   end
 end
