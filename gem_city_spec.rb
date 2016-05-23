@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative 'GemCity' # This line may need to be changed
+require_relative 'gem_city' # This line may need to be changed
 
 describe 'Gem City' do
   let(:city) { GemCity.new }
@@ -16,7 +16,7 @@ describe 'Gem City' do
 
     it 'officers = thieves' do
       city.thieves 1
-      city.setOfficers 1 # This line may need to be changed
+      city.assign_officers 1 # This line may need to be changed
       expect(city.successful_crime_rate).to eq(0)
     end
 
@@ -27,7 +27,7 @@ describe 'Gem City' do
 
     it 'officers > thieves' do
       city.thieves 1
-      city.setOfficers 2 # This line may need to be changed
+      city.assign_officers 2 # This line may need to be changed
       expect(city.successful_crime_rate).to eq(0)
     end
   end
