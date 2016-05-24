@@ -40,6 +40,8 @@ class GemCity
     }
   end
 
+  private
+
   def percentage(number_in_group)
     "#{(100.0 * number_in_group / @population).round}%"
   end
