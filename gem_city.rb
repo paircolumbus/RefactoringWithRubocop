@@ -1,26 +1,13 @@
 # This class represents the town of GemCity
 # This is a town riddled with crime but we can find out how happy the town is
 class GemCity
+  attr_accessor :officers, :thieves
   attr_reader :population
 
   def initialize
-    @people = {
-      thieves: 5,
-      officers: 1
-    }
+    @thieves = 5
+    @officers = 1
     @population = 50
-  end
-
-  def thieves(thieves_number = @people[:thieves])
-    @people[:thieves] = thieves_number
-  end
-
-  def officers
-    @people[:officers]
-  end
-
-  def officers=(officers)
-    @people[:officers] = officers
   end
 
   def happiness_of_town
